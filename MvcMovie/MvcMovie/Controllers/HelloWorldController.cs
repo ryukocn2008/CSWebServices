@@ -9,16 +9,20 @@ namespace MvcMovie.Controllers
     public class HelloWorldController : Controller
     {
         // GET: HelloWorld
-        public string Index()
+        public ActionResult Index()
         {
-            //return View();
-            return "This is my default action...";
+            return View();
+            //return "This is my default action...";
         }
 
-        public string Welcome(string name, int numTimes = 1)
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
             //return "This is the Welcome action method...";
-            return $"Hello {name}, numTimes: {numTimes}";
+            //return $"Hello {name}, numTimes: {numTimes}";
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
 
     }
